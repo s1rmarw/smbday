@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBDAY</title>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('phearts.jpg'); /* Default background image */
+            background-size: cover;
+            background-position: center;
+            transition: background-image 0.2s ease-in-out;
+        }
+
+        img {
+            width: 500px; /* Set the desired width */
+            height: 300px; /* Maintain the aspect ratio */
+        }
+
+        button {
+            margin: 20px;
+        }
+
+        .red-text {
+            color: red; /* Set the desired color */
+        }
+
+    </style>
+</head>
+<body>
+
+    <img src="heart.jpg" alt="sbday" id="valentine-image">
+    
+    
+
+    <div style="font-weight: bold; font-size: 35px;" id="dynamic-text">HAPPY BIRTHDAY SAMA!</div>
+            
+
+    <div class="button-container">
+        <button style="background-color:red; font-size: 40px;" onclick="handleNo()">هوف الشمع</button>
+    </div>
+
+    <script>
+        var noMessages = [
+            "I know you may see your birthday as a sad day but",
+            "For a lot of people, we celebrate it because we love you.",
+            "You are one of my closest friends that I can always count on to talk to about anything.",
+            "You know how to make a person feel better and make their shitty day a little shittier.",
+            "Not everyone in the world understand you and how you feel but there is always some that try.",
+            "ِAnd even if no one does, just remember you are hot (just look at this beautiful girl).",
+            "You know how to show someone you care about them .",
+            "And remember small stuff you didn't have to remember",
+            "I always loved you even if we had some time off.",
+            "And will continue to do so.",
+            "From someone I never expected to be friends with let alone be one of my closest and my best friend, \n To becoming someone I love talking to and listen to a lot without a limit and without getting bored \n And to becoming someone who I tell them about my weird stories and show my weird self to without getting judged \n I love making you laugh and love your laughter in your voice messages, it means a lot to me. Love you.",
+            "!كل سنة و انت طيبة يا سيومتي",
+            " "
+        ];
+
+        var noIndex = 0;
+        var noCount = 0; // Initialize noCount
+
+        var noImages = [
+            'heart.jpg',
+            'heart.jpg',
+            'heart.jpg',
+            'heart.jpg',
+            'heart.jpg',
+            'her2.png',
+            'heart.jpg',
+            'heart.jpg',
+            'heart.jpg',
+            'heart.jpg',
+            'heart.jpg',
+            'heart.jpg'
+            // Add more image paths as needed
+        ];
+
+          var dynamicText = document.getElementById("dynamic-text");
+          dynamicText.style.color = 'pink'; // Set default text color to green
+
+        function handleYes() {
+            // Change the text
+            document.getElementById("dynamic-text").innerText = "OMG YES THANK YOU!! \n See you on February 14th cutie <3";
+            var dynamicText = document.getElementById("dynamic-text");
+            dynamicText.style.color = 'green'; // Set default text color to green
+
+            // Remove the buttons
+            var buttonContainer = document.querySelector('.button-container');
+            buttonContainer.style.display = 'none';
+
+            // Change the image
+            var valentineImage = document.getElementById('valentine-image');
+            valentineImage.src = 'aothappy.gif'; // Replace 'new-image.jpg' with the path to your new image
+            valentineImage.alt = 'HAPPY';
+
+            // Change the background image
+            document.body.style.backgroundImage = "url('aotbackhappy.png')";
+        }
+
+        function handleNo() {
+            // "if" statement for No button
+            var dynamicText = document.getElementById("dynamic-text");
+            dynamicText.innerText = noMessages[noIndex];
+
+            // Change the image after each "No" message
+            var valentineImage = document.getElementById('valentine-image');
+            valentineImage.src = noImages[noIndex];
+            valentineImage.alt = 'NO';
+
+            // Increment index, cycle through messages and images
+            noIndex = (noIndex + 1) % Math.min(noMessages.length, noImages.length);
+
+            // Increment noCount
+            noCount++;
+
+            // Change the background image after 7 "No" clicks
+            if (noCount === 20) {
+                document.body.style.backgroundImage = "url('aotback.jpg')";
+                 dynamicText.style.color = 'red'; // Add the 'red-text' class to change text color to red
+                
+            } 
+
+            // End images after 11 No clicks
+            if (noCount === 12) {
+                            var buttonContainer = document.querySelector('.button-container button:last-child');
+            buttonContainer.style.display = 'none';
+            dynamicText.style.color = 'red';
+
+            // Change the text of the "Yes" button
+    var yesButton = document.querySelector('.button-container button:first-child');
+    yesButton.innerText = 'Say Yes to cancel.';
+            
+            var valentineImage = document.getElementById('valentine-image');
+            valentineImage.src = "heart2.jpg";
+            valentineImage.alt = 'NO';
+            } 
+        }
+    </script>
+
+</body>
+</html>
+	
